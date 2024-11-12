@@ -34,7 +34,7 @@ public class UserServiceImpl implements UserService{
     public void deleteUserById(long id) {
         User user = userDao.findUserById(id);
         if (user != null) {
-            userDao.deleteUserById(user);
+            userDao.deleteUser(user);
         }
     }
 

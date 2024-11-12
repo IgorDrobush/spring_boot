@@ -1,6 +1,10 @@
 package org.example.springboot.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 
 import java.util.Objects;
 
@@ -13,9 +17,13 @@ public class User {
     private Long id;
 
     @Column
+    @NotEmpty(message = "Поле не должно быть пустым")
+    @Pattern(regexp = "^[A-Za-z]+$", message = "Имя должно содержать только буквы латинского алфавита")
     private String name;
 
     @Column
+    @NotNull(message = "Поле не должно быть пустым")
+    @Min(value = 1, message = "Возраст должен быть положительным числом")
     private Byte age;
 
     public User() {
