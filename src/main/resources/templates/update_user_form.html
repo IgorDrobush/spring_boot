@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавить пользователя</title>
+</head>
+<body>
+<h2>Редактировать пользователя</h2>
+<form th:action="@{/update}" method="post" accept-charset="UTF-8" th:object="${user}">
+    <div>
+        <input type="hidden" th:field="*{id}" />
+    </div>
+
+    <div>
+        <label for="name">Имя: </label>
+        <input type="text" id="name" th:field="*{name}" required="required"
+               placeholder="Введите имя" pattern="[A-Za-z]+"
+               title="Имя должно содержать только буквы латинского алфавита"/>
+    </div>
+
+    <div>
+        <label for="age">Возраст: </label>
+        <input type="number" id="age" th:field="*{age}" required="required"
+               placeholder="Введите возраст" min="1"
+               title="Возраст должен быть положительным числом"/>
+    </div>
+
+    <div>
+        <input type="submit" value="Редактировать"/>
+    </div>
+</form>
+</body>
+</html>
